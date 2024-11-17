@@ -15,7 +15,8 @@ Coingecko API is built with the following technologies:
 - **[JavaScript]** - Core programming language for building the client logic.
 - **[AWS Lambda]** - A serverless computing service used to run backend logic in a scalable, event-driven environment without managing servers.
 - **[APIGATEWAY]** - A managed service that enables seamless routing and integration of HTTP requests to AWS Lambda functions, providing a secure entry point for API requests.
-- **[CICD]** - Continuous Integration and Continuous Deployment pipelines to ensure code quality, consistency, and automated deployment.
+- **[CI/CD Pipepline]** - Continuous Integration and Continuous Deployment pipelines to ensure code quality, consistency, and automated deployment.
+- **[Jest]** - A testing framework for writing and running unit tests to ensure functionality and stability.
 - **[DynamoDB]** - A fully managed NoSQL database service that provides fast and predictable performance with seamless scalability, ideal for storing and querying large amounts of data.
 - **[Coingecko API]** - A cryptocurrency data platform that provides comprehensive data on thousands of cryptocurrencies, including live prices, historical data, and market trends.
 
