@@ -1,5 +1,6 @@
 const { getCryptoPrice } = require('../apis/getCryptoPrice');
 const { sendEmail } = require('../utils/sendEmail');
+const { apiUrlGenerator, emailContentGenerator } = require('../utils/contentGenerator');
 
 async function handleEmailRequest(event) {
     const cryptoId = event.queryStringParameters?.cryptoId || null;
