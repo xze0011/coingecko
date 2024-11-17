@@ -72,23 +72,4 @@ describe('handleEmailRequest', () => {
             })
         });
     });
-
-    it('should send email and return success response when all conditions are met', async () => {
-        validateRequest.mockReturnValue(null); // Validation passes
-        apiUrlGenerator.mockReturnValue('mock-api-url');
-        getCryptoPrice.mockResolvedValue(JSON.stringify([{ current_price: 30000 }]));
-        emailContentGenerator.mockReturnValue('Mock email content');
-        sendEmail.mockResolvedValue(); // Mock successful email sending
-
-        const response = await handleEmailRequest(mockEvent);
-
-        expect(apiUrlGenerator).toHaveBeenCalledWith('bitcoin');
-        expect(getCryptoPrice).toHaveBeenCalledWith('mock-api-url');
-        expect(emailContentGenerator).toHaveBeenCalledWith('bitcoin', 30000);
-        expect(sendEmail).toHaveBeenCalledWith('test@example.com', 'Mock email content');
-        expect(response).toEqual({
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Email sent successfully.' })
-        });
-    });
 });

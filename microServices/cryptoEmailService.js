@@ -2,6 +2,8 @@ const { getCryptoPrice } = require('../apis/getCryptoPrice');
 const { sendEmail } = require('../utils/sendEmail');
 const { apiUrlGenerator, emailContentGenerator } = require('../utils/contentGenerator');
 const { validateRequest } = require('../utils/validator');
+const { insertLogToDynamoDB } = require('../apis/insertIntoDynamoDB');
+const { melbourneFullTime } = require('../utils/common');
 
 /**
  * Handles the email request by validating input, fetching crypto prices, generating email content, and sending an email.
@@ -39,6 +41,10 @@ async function handleEmailRequest(event) {
 
         // Send the generated email content to the provided email address
         await sendEmail(email, emailContent);
+
+        const logId = Number(Date.now());
+
+        await insertLogToDynamoDB(logId, email, cryptoId, melbourneFullTime);
 
         return {
             statusCode: 200,
