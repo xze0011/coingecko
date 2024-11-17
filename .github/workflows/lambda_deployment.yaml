@@ -10,12 +10,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Install Dependencies
         run: npm install
+
+      - name: Run Tests
+        run: npm test
+
       - name: Install zip tool
         uses: montudor/action-zip@v1
+
       - name: Create Zip file for Lambda function
         run: zip -r code.zip .
+
       - name: AWS CLI v2
         uses: imehedi/actions-awscli-v2@latest
         with:

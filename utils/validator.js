@@ -14,6 +14,9 @@ function validateEmail(email) {
  * @returns {boolean} - Returns true if the crypto ID format is valid, otherwise false.
  */
 function validateCryptoId(cryptoId) {
+    if (!cryptoId || cryptoId.trim() === '') {
+        return false;
+    }
     const cryptoIdRegex = /^[a-zA-Z0-9\-]+$/; // Allows letters, numbers, and hyphens
     return cryptoId && cryptoIdRegex.test(cryptoId.trim());
 }
