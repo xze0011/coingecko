@@ -7,21 +7,20 @@
 
 function emailContentGenerator(cryptoId, price) {
     return `
-        <p>Dear Valued Investor,</p>
-        
-        <p>We are pleased to inform you that the latest market update for your chosen cryptocurrency is here!</p>
-        
-        <p>As of now, the current price of <strong>${cryptoId.toUpperCase()}</strong> stands at <strong>$${price} AUD</strong>.</p>
-        
-        <p>Thank you for trusting us to keep you updated on your investment journey. Should you have any further inquiries or need assistance, please feel free to reach out.</p>
-        
-        <p>Wishing you success in your investments!</p>
-        
-        <p>Warm regards,<br>
-        Crypto Service Team</p>
-    `;
-}
+Dear Valued Investor,
 
+We are pleased to inform you that the latest market update for your chosen cryptocurrency is here!
+
+As of now, the current price of ${cryptoId.toUpperCase()} stands at $${price} AUD.
+
+Thank you for trusting us to keep you updated on your investment journey. Should you have any further inquiries or need assistance, please feel free to reach out.
+
+Wishing you success in your investments!
+
+Warm regards,
+Crypto Service Team
+    `
+}
 /**
  * Generates the API URL to fetch the current price of a cryptocurrency.
  * @param {string} cryptoId - The ID of the cryptocurrency.

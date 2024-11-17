@@ -7,8 +7,7 @@ describe('emailContentGenerator', () => {
 
         const emailContent = emailContentGenerator(cryptoId, price);
 
-        // Check for specific HTML tags and formatted content
-        expect(emailContent).toContain(`<strong>${cryptoId.toUpperCase()}</strong>`);
+        expect(emailContent).toContain(`${cryptoId.toUpperCase()}`);
         expect(emailContent).toContain(`${price}`);
     });
 });
