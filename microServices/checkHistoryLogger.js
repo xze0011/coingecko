@@ -5,8 +5,16 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
  * Fetches all records from the DynamoDB table specified in environment variables.
  * @returns {Object} - An HTTP response object containing the status code and body with either the fetched items or an error message.
  */
-async function handleGetSearchLog() {
+async function handleGetSearchLog(event) {
     const params = { TableName: process.env.DYNAMODB_TABLE };
+    const token = event.queryStringParameters?.token || null;
+
+    if (token !== process.env.VALID_TOKEN) {
+        return {
+            statusCode: 403,
+            body: JSON.stringify({ message: 'Limited access: Invalid token.' }),
+        };
+    }
 
     try {
         // Scan the DynamoDB table to retrieve all records
